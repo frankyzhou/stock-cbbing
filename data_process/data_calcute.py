@@ -66,18 +66,18 @@ def _calcute_ma(code, date_start='', date_end='', is_calcute_lastest=False):
         ma_l = 'ma_' + str(AVR_LONG)
         ema_s = 'ema_' + str(AVR_SHORT)
         ema_l = 'ema_' + str(AVR_LONG)
-        # try:
-        #     sql = "alter table %s add %s double" % (table_name, ma_s)
-        #     engine.execute(sql)
-        #     sql = "alter table %s add %s double" % (table_name, ma_l)
-        #     engine.execute(sql)
-        #     sql = "alter table %s add %s double" % (table_name, ema_s)
-        #     engine.execute(sql)
-        #     sql = "alter table %s add %s double" % (table_name, ema_l)
-        #     engine.execute(sql)
-        # except Exception, e:
-        #     str_error = 'column exists'
-        #     print ''
+        try:
+            sql = "alter table %s add %s double" % (table_name, ma_s)
+            engine.execute(sql)
+            sql = "alter table %s add %s double" % (table_name, ma_l)
+            engine.execute(sql)
+            sql = "alter table %s add %s double" % (table_name, ema_s)
+            engine.execute(sql)
+            sql = "alter table %s add %s double" % (table_name, ema_l)
+            engine.execute(sql)
+        except Exception, e:
+            str_error = 'column exists'
+            print ''
 
         # 按由近到远的顺序排序
         df = df.sort_index(by='date', ascending=False)
@@ -128,5 +128,5 @@ def _calcute_ma_lastest(code):
 if __name__ == "__main__":
     #_calcute_ma('600000', '2015-01-01', '2015-10-14', True)
     calcute_ma_all()
-    #calcute_ma_lastest_all()
+    calcute_ma_lastest_all()
     #_calcute_ma_lastest('000033')

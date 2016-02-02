@@ -191,8 +191,8 @@ def download_all_stock_history_k_line():
  
     
 if __name__ == '__main__'  :  
-    download_stock_basic_info()
-    download_all_stock_history_k_line()
+    # download_stock_basic_info()
+    # download_all_stock_history_k_line()
     calcute_ma_all()
     #download_stock_kline_to_sql('000001')
     
